@@ -4,7 +4,7 @@ import formulas as calc
 
 def main_menu(win):
 
-    bg = pygame.image.load("Background_PNG/main_menu.png")
+    bg = pygame.image.load("Background_PNG/main_menu2.png")
     loop = True
     while loop:
         for event in pygame.event.get():
@@ -15,7 +15,7 @@ def main_menu(win):
 
             	mouse = pygame.mouse.get_pos()
 
-            	if (213 + 79 > mouse[0] > 79) and (437 + 44 > mouse[1] > 437):
+            	if (259 + 79 > mouse[0] > 79) and (365 + 44 > mouse[1] > 365):
             		loop = False
             		rootFinding_UI(win)
 
@@ -30,7 +30,7 @@ def main_menu(win):
 
 def rootFinding_UI(win):
 
-	bg = pygame.image.load("Background_PNG/rootFindingUI_menu.png")
+	bg = pygame.image.load("Background_PNG/rootFindingUI_menu2.png")
 
 	loop = True
 
@@ -45,11 +45,11 @@ def rootFinding_UI(win):
 
 				mouse = pygame.mouse.get_pos()
 
-				if (95 + 296 > mouse[0] > 95 ) and (470 + 44 > mouse[1] > 470):
+				if (95 + 206 > mouse[0] > 95 ) and (412 + 44 > mouse[1] > 412):
 					loop = False
 					bisectionMethod_UI(win)
 
-				elif (712 + 430 > mouse[0] > 712) and (471 + 44 > mouse[1] > 471):
+				elif (712 + 817 > mouse[0] > 712) and (404 + 44 > mouse[1] > 404):
 					loop = False
 					newtonRaphson_UI(win)
 
@@ -59,7 +59,7 @@ def rootFinding_UI(win):
 
 def bisectionMethod_UI(win):
 
-	bg = pygame.image.load("Background_PNG/bisectionUI_menu.png")
+	bg = pygame.image.load("Background_PNG/bisectionUI_menu2.png")
 
 	loop = True
 	funcInputExist = False
@@ -90,28 +90,28 @@ def bisectionMethod_UI(win):
 
 				mouse = pygame.mouse.get_pos()
 
-				if (173 + 372 > mouse[0] > 173) and (390 + 40 > mouse[1] > 390):
+				if (173 + 47 > mouse[0] > 173) and (276 + 40 > mouse[1] > 276):
 
 					functionInput = pygame_textinput.TextInput(functext,"Arial",20)
 					functext = ""
 					funcInputExist = True
 					currInputing = "function"
 
-				elif  (618 + 176 > mouse[0] > 618) and (390 + 40 > mouse[1] > 390):
+				elif  (618 + 546 > mouse[0] > 618) and (296 + 40 > mouse[1] > 296):
 
 					upperInput = pygame_textinput.TextInput(uppertext,"Arial",20)
 					uppertext = ""
 					upInputExist = True
 					currInputing = "upper"
 
-				elif (882 + 178 > mouse[0] > 882) and (390 + 40 > mouse[1] > 390):
+				elif (882 + 850> mouse[0] > 882) and (296 + 40 > mouse[1] > 296):
 
 					lowerInput = pygame_textinput.TextInput(lowertext,"Arial",20)
 					lowertext = ""
 					lowInputExist = True
 					currInputing = "lower"
 
-				elif (791 + 264 > mouse[0] > 791) and (611 + 48 > mouse[1] > 611):
+				elif (791 + 135 > mouse[0] > 791) and (382 + 48 > mouse[1] > 382):
 
 					f = lambda x : eval(functext)
 					xu = int(uppertext)
