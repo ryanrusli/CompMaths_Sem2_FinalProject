@@ -13,15 +13,15 @@ def main_menu(win):
 
             elif (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1):
 
-            	mouse = pygame.mouse.get_pos()
+                mouse = pygame.mouse.get_pos()
 
-            	if (259 + 79 > mouse[0] > 79) and (365 + 44 > mouse[1] > 365):
-            		loop = False
-            		rootFinding_UI(win)
+                if (73 + 259 > mouse[0] > 73) and (337 + 56 > mouse[1] > 337):
+                    loop = False
+                    rootFinding_UI(win)
 
 
 
-                	
+                    
         win.blit(bg,(0,0))
 
         pygame.display.update()
@@ -30,151 +30,250 @@ def main_menu(win):
 
 def rootFinding_UI(win):
 
-	bg = pygame.image.load("Background_PNG/rootFindingUI_menu2.png")
+    bg = pygame.image.load("Background_PNG/rootFindingUI_menu2.png")
 
-	loop = True
+    loop = True
 
-	while loop:
+    while loop:
 
-		for event in pygame.event.get():
+        for event in pygame.event.get():
 
-			if event.type == pygame.QUIT:
-				pygame.quit()
+            if event.type == pygame.QUIT:
+                pygame.quit()
 
-			elif (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1):
+            elif (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1):
 
-				mouse = pygame.mouse.get_pos()
+                mouse = pygame.mouse.get_pos()
 
-				if (95 + 206 > mouse[0] > 95 ) and (412 + 44 > mouse[1] > 412):
-					loop = False
-					bisectionMethod_UI(win)
+                if (77 + 259 > mouse[0] > 77 ) and (384 + 56 > mouse[1] > 384):
+                    loop = False
+                    bisectionMethod_UI(win)
 
-				elif (712 + 817 > mouse[0] > 712) and (404 + 44 > mouse[1] > 404):
-					loop = False
-					newtonRaphson_UI(win)
+                elif (688 + 259 > mouse[0] > 688) and (376 + 56 > mouse[1] > 376):
+                    loop = False
+                    newtonRaphson_UI(win)
 
-		win.blit(bg,(0,0))
-		pygame.display.update()
+        win.blit(bg,(0,0))
+        pygame.display.update()
 
 
 def bisectionMethod_UI(win):
 
-	bg = pygame.image.load("Background_PNG/bisectionUI_menu2.png")
+    bg = pygame.image.load("Background_PNG/bisectionUI_menu2.png")
 
-	loop = True
-	funcInputExist = False
-	upInputExist = False
-	lowInputExist = False
+    loop = True
+    funcInputExist = False
+    upInputExist = False
+    lowInputExist = False
 
-	currInputing = "none"
-	clock = pygame.time.Clock()
-	
-	functext = ""
-	uppertext = ""
-	lowertext = ""
-	resulttext = ""
+    currInputing = "none"
+    clock = pygame.time.Clock()
+    
+    functext = "x**2 - 2"
+    uppertext = "5"
+    lowertext = "0"
+    resulttext = ""
 
-	font = pygame.font.SysFont("Arial",25)
+    font = pygame.font.SysFont("Arial",25)
 
-	while loop:
-		clock.tick(120)
+    while loop:
+        clock.tick(120)
 
-		events = pygame.event.get()
-		for event in events:
+        events = pygame.event.get()
+        for event in events:
 
-			if (event.type  == pygame.QUIT):
-				pygame.quit()
-				exit()
+            if (event.type  == pygame.QUIT):
+                pygame.quit()
+                exit()
 
-			elif (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1):
+            elif (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1):
 
-				mouse = pygame.mouse.get_pos()
-
-				if (173 + 47 > mouse[0] > 173) and (276 + 40 > mouse[1] > 276):
-
-					functionInput = pygame_textinput.TextInput(functext,"Arial",20)
-					functext = ""
-					funcInputExist = True
-					currInputing = "function"
-
-				elif  (618 + 546 > mouse[0] > 618) and (296 + 40 > mouse[1] > 296):
-
-					upperInput = pygame_textinput.TextInput(uppertext,"Arial",20)
-					uppertext = ""
-					upInputExist = True
-					currInputing = "upper"
-
-				elif (882 + 850> mouse[0] > 882) and (296 + 40 > mouse[1] > 296):
-
-					lowerInput = pygame_textinput.TextInput(lowertext,"Arial",20)
-					lowertext = ""
-					lowInputExist = True
-					currInputing = "lower"
-
-				elif (791 + 135 > mouse[0] > 791) and (382 + 48 > mouse[1] > 382):
-
-					f = lambda x : eval(functext)
-					xu = int(uppertext)
-					xl = int(lowertext)
-
-					resultext = str(calc.bisection(f,xu,xl,1.0E-6))
+                mouse = pygame.mouse.get_pos()
 
 
 
+                if (47 + 372 > mouse[0] > 47) and (276 + 40 > mouse[1] > 276):
+
+                    if (funcInputExist):
+                        functext = functionInput.get_text()
+                        funcInputExist = False
+                        currInputing = "none"
+
+                    elif (upInputExist):
+
+                        uppertext = upperInput.get_text()
+                        upInputExist = False
+                        currInputing = "none"
+
+                    elif (lowInputExist):
+
+                        lowertext = lowerInput.get_text()
+                        lowInputExist = False
+                        currInputing = "none"
+
+                    functionInput = pygame_textinput.TextInput(functext,"Arial",20)
+                    functext = ""
+                    funcInputExist = True
+                    currInputing = "function"
+
+                elif  (458 + 176 > mouse[0] > 458) and (276 + 40 > mouse[1] > 276):
+
+                    if (funcInputExist):
+                        functext = functionInput.get_text()
+                        funcInputExist = False
+                        currInputing = "none"
+
+                    elif (upInputExist):
+
+                        uppertext = upperInput.get_text()
+                        upInputExist = False
+                        currInputing = "none"
+
+                    elif (lowInputExist):
+
+                        lowertext = lowerInput.get_text()
+                        lowInputExist = False
+                        currInputing = "none"
+
+                    upperInput = pygame_textinput.TextInput(uppertext,"Arial",20)
+                    uppertext = ""
+                    upInputExist = True
+                    currInputing = "upper"
+
+                elif (761 + 178 > mouse[0] > 761) and (276 + 40 > mouse[1] > 276):
+
+                    if (funcInputExist):
+                        functext = functionInput.get_text()
+                        funcInputExist = False
+                        currInputing = "none"
+
+                    elif (upInputExist):
+
+                        uppertext = upperInput.get_text()
+                        upInputExist = False
+                        currInputing = "none"
+
+                    elif (lowInputExist):
+
+                        lowertext = lowerInput.get_text()
+                        lowInputExist = False
+                        currInputing = "none"
 
 
-			elif (event.type == pygame.KEYDOWN):
+                    lowerInput = pygame_textinput.TextInput(lowertext,"Arial",20)
+                    lowertext = ""
+                    lowInputExist = True
+                    currInputing = "lower"
 
-				if (event.key == pygame.K_ESCAPE or event.key == pygame.K_RETURN):
+                elif (46 + 259 > mouse[0] > 46) and (418 + 56 > mouse[1] > 418):
 
-					if (currInputing == "function"):
+                    if (funcInputExist):
+                        functext = functionInput.get_text()
+                        funcInputExist = False
+                        currInputing = "none"
 
-						functext = functionInput.get_text()
-						funcInputExist = False
-						currInputing = "none"
+                    elif (upInputExist):
 
-					elif (currInputing == "upper"):
+                        uppertext = upperInput.get_text()
+                        upInputExist = False
+                        currInputing = "none"
 
-						uppertext = upperInput.get_text()
-						upInputExist = False
-						currInputing = "none"
+                    elif (lowInputExist):
 
-					elif (currInputing == "lower"):
+                        lowertext = lowerInput.get_text()
+                        lowInputExist = False
+                        currInputing = "none"
 
-						lowertext = lowerInput.get_text()
-						lowInputExist = False
-						currInputing = "none"
+                    f = lambda x : eval(functext)
+                    xu = int(uppertext)
+                    xl = int(lowertext)
 
+                    result = calc.bisection(f,xl,xu,1.0E-6)
 
-		win.blit(bg,(0,0))
-		if (funcInputExist):	
-			functionInput.update(events)
-			win.blit(functionInput.get_surface(),(210,405))
+                    if (result == None):
+                        resulttext = "Root Not Found"
 
-		elif (upInputExist):
-			upperInput.update(events)
-			win.blit(upperInput.get_surface(),(660,405))
+                    else:
 
-		elif (lowInputExist):
-			lowerInput.update(events)
-			win.blit(lowerInput.get_surface(),(920,405))
+                        resulttext = round(result,4)
 
 
-		renfunctext = font.render(functext, False,(0,0,0))
-		renuptext = font.render(uppertext, False,(0,0,0))
-		renlowctext = font.render(lowertext, False,(0,0,0))
-		renrestext = font.render(resulttext, False, (0,0,0))
+                else:
 
-		win.blit(renfunctext,(210,405))
-		win.blit(renuptext,(660,405))
-		win.blit(renlowctext,(920,405))
-		win.blit(renrestext,(310,635))
+                    if (funcInputExist):
+                        functext = functionInput.get_text()
+                        funcInputExist = False
+                        currInputing = "none"
 
-		pygame.display.update()
+                    elif (upInputExist):
+
+                        uppertext = upperInput.get_text()
+                        upInputExist = False
+                        currInputing = "none"
+
+                    elif (lowInputExist):
+
+                        lowertext = lowerInput.get_text()
+                        lowInputExist = False
+                        currInputing = "none"
+
+
+            elif (event.type == pygame.KEYDOWN):
+
+                if (event.key == pygame.K_ESCAPE or event.key == pygame.K_RETURN):
+
+                    if (currInputing == "function"):
+
+                        functext = functionInput.get_text()
+                        print(functext)
+                        funcInputExist = False
+                        currInputing = "none"
+
+                    elif (currInputing == "upper"):
+
+                        uppertext = upperInput.get_text()
+                        upInputExist = False
+                        currInputing = "none"
+
+                    elif (currInputing == "lower"):
+
+                        lowertext = lowerInput.get_text()
+                        lowInputExist = False
+                        currInputing = "none"
+
+
+        win.blit(bg,(0,0))
+        
+        if (funcInputExist):    
+            functionInput.update(events)
+            win.blit(functionInput.get_surface(),(70,290))
+
+        elif (upInputExist):
+            upperInput.update(events)
+            win.blit(upperInput.get_surface(),(480,290))
+
+        elif (lowInputExist):
+            lowerInput.update(events)
+            win.blit(lowerInput.get_surface(),(780,290))
+
+
+        renfunctext = font.render(functext, False,(0,0,0))
+        renuptext = font.render(uppertext, False,(0,0,0))
+        renlowctext = font.render(lowertext, False,(0,0,0))
+        renrestext = font.render(str(resulttext), False, (0,0,0))
+
+        win.blit(renfunctext,(70,290))
+        win.blit(renuptext,(480,290))
+        win.blit(renlowctext,(780,290))
+        win.blit(renrestext,(60,365))
+
+        pygame.display.update()
 
 
 
 def newtonRaphson_UI(win):
 
-	pass
+
+
+    pass
 
