@@ -1,0 +1,25 @@
+History Button :
+
+x : 1142, W = 45
+y : 8, H = 38
+
+Settings Button :
+
+x : 1204, W = 38
+y : 8, H = 39
+
+Root Finding Text :
+
+x: 79, w = 213
+y = 437, H = 44
+
+Bisection Text:
+
+x : 95, w = 296
+y : 470, h = 44 
+
+Newton Raphson Text:
+
+x : 712, w = 430
+y : 471, h = 44
+
