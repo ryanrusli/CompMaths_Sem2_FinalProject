@@ -4,7 +4,7 @@ import formulas as calc
 
 def main_menu(win):
 
-    bg = pygame.image.load("Background_PNG/main_menu2.png")
+    bg = pygame.image.load("Background_PNG/main_menu3.png")
     loop = True
     while loop:
         for event in pygame.event.get():
@@ -19,7 +19,7 @@ def main_menu(win):
 
                 if (73 + 259 > mouse[0] > 73) and (337 + 56 > mouse[1] > 337):
                     loop = False
-                    rootFinding_UI(win)
+                    bisectionMethod_UI(win)
 
                 elif (701 + 259 > mouse[0] > 701) and (505 + 56 > mouse[1] > 505):
 
@@ -45,7 +45,7 @@ def main_menu(win):
 
 def rootFinding_UI(win):
 
-    bg = pygame.image.load("Background_PNG/rootFindingUI_menu2.png")
+    bg = pygame.image.load("Background_PNG/rootFindingUI_menu3.png")
 
     loop = True
 
@@ -77,7 +77,7 @@ def rootFinding_UI(win):
 
 def bisectionMethod_UI(win):
 
-    bg = pygame.image.load("Background_PNG/bisectionUI_menu2.png")
+    bg = pygame.image.load("Background_PNG/bisectionUI3.png")
 
     loop = True
     funcInputExist = False
@@ -136,7 +136,7 @@ def bisectionMethod_UI(win):
 
                 elif (10 + 28 > mouse[0] > 10) and (7 + 35 > mouse[1] > 7):
                     loop = False
-                    rootFinding_UI(win)
+                    main_menu(win)
 
                 elif  (458 + 176 > mouse[0] > 458) and (276 + 40 > mouse[1] > 276):
 
@@ -301,7 +301,7 @@ def newtonRaphson_UI(win):
 
 def interpolation_UI(win):
 
-    bg = pygame.image.load("Background_PNG/InterpolationUI2.png")
+    bg = pygame.image.load("Background_PNG/InterpolationUI3.png")
 
     loop = True
 
@@ -398,7 +398,7 @@ def interpolation_UI(win):
 
 def numericalDifferentiationUI(win):
 
-    bg = pygame.image.load("Background_PNG/NumericalDifferentiationUI2.png")
+    bg = pygame.image.load("Background_PNG/NumericalDifferentiationUI3.png")
 
     loop = True
     funcInputExist = False
@@ -555,7 +555,7 @@ def numericalDifferentiationUI(win):
 
 def optimizationUI(win):
 
-    bg = pygame.image.load("Background_PNG/Optimization2.png")
+    bg = pygame.image.load("Background_PNG/Optimization3.png")
 
     loop = True
 
