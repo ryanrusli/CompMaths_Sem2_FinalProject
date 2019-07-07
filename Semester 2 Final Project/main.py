@@ -1,7 +1,6 @@
 import pygame
 import menus as m
 
-
 x = 100
 y = 50
 import os

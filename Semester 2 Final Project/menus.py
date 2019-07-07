@@ -19,7 +19,10 @@ def main_menu(win):
                     loop = False
                     rootFinding_UI(win)
 
+                elif (386 + 259 > mouse[0] > 386) and (412 + 56 > mouse[1] > 412):
 
+                    loop = False
+                    interpolation_UI(win)
 
                     
         win.blit(bg,(0,0))
@@ -74,7 +77,7 @@ def bisectionMethod_UI(win):
     lowertext = "0"
     resulttext = ""
 
-    font = pygame.font.SysFont("Arial",25)
+    font = pygame.font.SysFont("Arial",20)
 
     while loop:
         clock.tick(120)
@@ -115,6 +118,10 @@ def bisectionMethod_UI(win):
                     functext = ""
                     funcInputExist = True
                     currInputing = "function"
+
+                elif (10 + 28 > mouse[0] > 10) and (7 + 35 > mouse[1] > 7):
+                    loop = False
+                    rootFinding_UI(win)
 
                 elif  (458 + 176 > mouse[0] > 458) and (276 + 40 > mouse[1] > 276):
 
@@ -225,7 +232,6 @@ def bisectionMethod_UI(win):
                     if (currInputing == "function"):
 
                         functext = functionInput.get_text()
-                        print(functext)
                         funcInputExist = False
                         currInputing = "none"
 
@@ -276,4 +282,103 @@ def newtonRaphson_UI(win):
 
 
     pass
+
+
+def interpolation_UI(win):
+
+    bg = pygame.image.load("Background_PNG/InterpolationUI2.png")
+
+    loop = True
+
+    font = pygame.font.SysFont("Arial",20)
+
+    visctext = ""
+    resulttext = ""
+    viscInputExist = False
+    currInputing = "none"
+
+    x_sample = [0,5,10,15]
+    y_sample = [1.792,1.519,1.308,1.140]
+
+    while loop:
+
+        events = pygame.event.get()
+
+        for event in events:
+
+            if (event.type == pygame.QUIT):
+
+                pygame.quit()
+                exit()
+
+            elif (event.type == pygame.MOUSEBUTTONDOWN):
+
+                mouse = pygame.mouse.get_pos()
+                
+                
+                if (10 + 28 > mouse[0] > 10 ) and  (7 + 35 > mouse[1] > 7):
+                    loop = False
+                    main_menu(win)
+
+                elif (236 + 390 > mouse[0] > 236) and (262 + 40 > mouse[1] > 262):
+
+
+                    if (viscInputExist):
+                        visctext = viscInput.get_text()
+                        viscInputExist = False
+                        currInputing = "none"
+
+                    viscInputExist = True
+                    viscInput = pygame_textinput.TextInput(visctext,"Arial",20)
+                    visctext = ""
+                    currInputing = "visc"
+
+                elif (235 + 259 > mouse[0] > 235) and (404 + 56 > mouse[1] > 404):
+
+                    if (viscInputExist):
+                        visctext = viscInput.get_text()
+                        viscInputExist = False
+                        currInputing = "none"
+                    
+                    val = int (visctext)
+
+                    result = calc.mylagrange(x_sample,y_sample,val)
+
+                    resulttext = str(round(result,3))
+
+
+
+                else:
+
+                    if (viscInputExist):
+                        visctext = viscInput.get_text()
+                        viscInputExist = False
+                        currInputing = "none"
+           
+            elif (event.type == pygame.KEYDOWN):
+
+                if (event.key == pygame.K_ESCAPE or event.key == pygame.K_RETURN):
+
+                    if (currInputing == "visc"):
+
+                        visctext = viscInput.get_text()
+                        viscInputExist = False
+                        currInputing = "none"
+
+        win.blit(bg,(0,0))
+        
+        if (viscInputExist):
+            viscInput.update(events)
+            win.blit(viscInput.get_surface(),(258,280))
+
+        renvisctext = font.render(visctext,False,(0,0,0))
+        renrestext =  font.render(resulttext,False,(0,0,0))
+
+        win.blit(renvisctext,(258,280))
+        win.blit(renrestext,(250,365))
+
+
+        pygame.display.update()
+
+    
 

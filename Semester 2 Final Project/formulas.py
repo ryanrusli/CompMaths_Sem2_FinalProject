@@ -40,7 +40,24 @@ def bisection(f,x1,x2,dGoal):
             xm = xm1
             
 
-
+def mylagrange(x,y,val):
+    
+    l_val = []
+    for i in range(0,len(x)):
+        l_val.append(1)
+        
+    y_fin = 0
+    
+    for i in range(0,len(x)):
+        for j in range(0,len(x)):
+            
+            if (i != j):
+                l_val[i] *= (val - x[j])/(x[i]-x[j])
+        
+    for i in range(0,len(y)):
+        y_fin += y[i] * l_val[i]
+    
+    return y_fin
             
         
         
