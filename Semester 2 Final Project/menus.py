@@ -4,7 +4,7 @@ import formulas as calc
 
 def main_menu(win):
 
-    bg = pygame.image.load("Background_PNG/main_menu3.png")
+    bg = pygame.image.load("Background_PNG/main_menu2.png")
     loop = True
     while loop:
         for event in pygame.event.get():
@@ -17,7 +17,7 @@ def main_menu(win):
                 print(mouse[0])
                 print(mouse[1])
 
-                if (73 + 259 > mouse[0] > 73) and (337 + 56 > mouse[1] > 337):
+                if (392 + 259 > mouse[0] > 392) and (497 + 56 > mouse[1] > 497):
                     loop = False
                     bisectionMethod_UI(win)
 
@@ -398,7 +398,7 @@ def interpolation_UI(win):
 
 def numericalDifferentiationUI(win):
 
-    bg = pygame.image.load("Background_PNG/NumericalDifferentiationUI3.png")
+    bg = pygame.image.load("Background_PNG/NumericalDifferentiationUI2.png")
 
     loop = True
     funcInputExist = False
