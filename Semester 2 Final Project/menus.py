@@ -14,12 +14,14 @@ def main_menu(win):
             elif (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1):
 
                 mouse = pygame.mouse.get_pos()
+                print(mouse[0])
+                print(mouse[1])
 
                 if (73 + 259 > mouse[0] > 73) and (337 + 56 > mouse[1] > 337):
                     loop = False
                     rootFinding_UI(win)
 
-                elif (386 + 259 > mouse[0] > 386) and (412 + 56 > mouse[1] > 412):
+                elif (701 + 259 > mouse[0] > 701) and (505 + 56 > mouse[1] > 505):
 
                     loop = False
                     interpolation_UI(win)
@@ -65,6 +67,9 @@ def rootFinding_UI(win):
                 elif (688 + 259 > mouse[0] > 688) and (376 + 56 > mouse[1] > 376):
                     loop = False
                     newtonRaphson_UI(win)
+                elif (10 + 28 > mouse[0] > 10 ) and  (7 + 35 > mouse[1] > 7):
+                    loop = False
+                    main_menu(win)
 
         win.blit(bg,(0,0))
         pygame.display.update()
@@ -302,7 +307,7 @@ def interpolation_UI(win):
 
     font = pygame.font.SysFont("Arial",20)
 
-    visctext = ""
+    visctext = "11"
     resulttext = ""
     viscInputExist = False
     currInputing = "none"
@@ -423,7 +428,8 @@ def numericalDifferentiationUI(win):
 
                 mouse = pygame.mouse.get_pos()
 
-
+                print(mouse[0])
+                print(mouse[1])
                 if (47 + 372 > mouse[0] > 47) and (276 + 40 > mouse[1] > 276):
 
                     if (funcInputExist):
@@ -466,7 +472,7 @@ def numericalDifferentiationUI(win):
                     currInputing = "level"
 
 
-                elif (46 + 259 > mouse[0] > 46) and (418 + 56 > mouse[1] > 418):
+                elif (676 + 259 > mouse[0] > 676) and (287 + 56 > mouse[1] > 287):
 
                     if (funcInputExist):
                         functext = functionInput.get_text()
@@ -539,8 +545,8 @@ def numericalDifferentiationUI(win):
         win.blit(renrestext,(60,365))
         
         if (newimg):
-            newImg = pygame.transform.scale(newImg,(288,192))
-            win.blit(newImg,(700,220))
+            newImg = pygame.transform.scale(newImg,(450,260))
+            win.blit(newImg,(40,330))
 
         pygame.display.update()
 
