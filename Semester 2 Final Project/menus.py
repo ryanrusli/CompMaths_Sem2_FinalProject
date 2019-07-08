@@ -391,7 +391,7 @@ def interpolation_UI(win):
 
 def numericalDifferentiationUI(win):
 
-    bg = pygame.image.load("Background_PNG/NumericalDifferentiationUI3.png")
+    bg = pygame.image.load("Background_PNG/NumericalDifferentiationUI2.png")
 
     loop = True
     funcInputExist = False
